@@ -1,0 +1,82 @@
+{
+    "crop.json": "crop.json",
+    "site.json": "site.json",
+    "climate.csv": "climate.csv",
+
+    "climate.csv-options": {
+        "start-date": "2000-01-01",
+        "end-date": "2020-08-30",
+    
+        "no-of-climate-file-header-lines": 1,
+        "csv-separator": "\t",
+        "header-to-acd-names": {
+            "Date": "iso-date",
+            "Precipitation": "precip",
+            "TempMin": "tmin",
+            "TempMean": "tavg",
+            "TempMax": "tmax",
+            "Radiation": ["globrad", "/", 100],
+            "Windspeed": "wind",
+            "RelHumCalc": "relhumid"
+        }
+    },
+
+    "debug?": false,
+    "include-file-base-path": "data/params/",
+    
+    "output": { 
+        "obj-outputs?": true,
+        "write-file?": false,
+
+        "path-to-output": "./",
+        "file-name": "sim-out.csv",
+    
+        "csv-options": {
+            "include-header-row": true,
+            "include-units-row": true,
+            "include-aggregation-rows": false,
+            "csv-separator": ","
+        },
+        
+        "events" : [
+            "crop", [
+                ["Year|harvest-year", "LAST"],
+                ["Date|sowing", "FIRST"],
+                ["Date|harvest", "LAST"],
+                ["Yield", "LAST"],
+                ["AbBiom", "LAST"]
+            ]
+        ]
+    },
+
+    "__turn on/off some model switches": "",
+    "UseSecondaryYields": false,
+    "NitrogenResponseOn": true,
+    "WaterDeficitResponseOn": true,
+    "EmergenceMoistureControlOn": true,
+    "EmergenceFloodingControlOn": true,
+
+    "__if monica internal automatic irrigation is to be used, configure donations here": "",
+    "UseAutomaticIrrigation": false,
+    "AutoIrrigationParams": {
+        "irrigationParameters": {
+            "nitrateConcentration": [0, "mg dm-3"],
+            "sulfateConcentration": [0, "mg dm-3"]
+        },
+        "amount": [17, "mm"],
+        "threshold": 0.35
+    },
+
+    "__if monica internal automatic fertilizing via NMin method is to be used, configure here": "",
+    "UseNMinMineralFertilisingMethod": false,
+    "NMinUserParams": { "min": 40, "max": 120, "delayInDays": 10 },
+    "NMinFertiliserPartition": ["include-from-file", "mineral-fertilisers/AN.json"],
+    "_NMinFertiliserPartition": {
+        "id": "my AN",
+        "name": "my very own ammonium nitrate variant",
+        "Carbamid": 0,
+        "NH4": 0.5,
+        "NO3": 0.5
+    },
+    "JulianDayAutomaticFertilising": 89
+}

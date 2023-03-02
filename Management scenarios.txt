@@ -1,0 +1,4 @@
+Sowing dates (day of year),Nitrogen application rate (kg ha),Irrigation
+level1: 244,level1: 50,Senario1: Rainfed
+level2: 274,level2: 100,Senario2: 100 mm every 7 days after anthesis
+level3: 305,level3: 200,

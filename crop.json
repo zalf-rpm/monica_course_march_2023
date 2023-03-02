@@ -1,0 +1,49 @@
+  {
+    "cropRotation": [
+        {
+            "worksteps": [
+                { "date": "0000-09-23", "type": "Sowing", "crop": {
+                        "is-winter-crop": true,
+                        "cropParams": {
+                            "species": ["include-from-file", "crops/species/wheat.json"],
+                            "cultivar": {
+                                "=": ["include-from-file", "crops/cultivars/winter-wheat_bs_dwd_pheno.json"],
+                                "StageTemperatureSum": [165, 225, 395, 180, 330, 25]
+                            }
+                        },
+                        "residueParams": ["include-from-file", "crops/residues/wheat.json"]
+                    } 
+                },
+                {
+                    "type": "NDemandFertilization",
+                    "days": 60,
+                    "after": "Sowing",
+                    "N-demand": [0.0, "kg"],
+                    "depth": [0.3, "m"],
+                    "partition": ["include-from-file", "mineral-fertilisers/U.json"]
+                },
+                {
+                    "after": "anthesis",
+                    "days": 7,
+                    "type": "Irrigation",
+                    "amount": [0, "mm"],
+                    "parameters": {
+                        "nitrateConcentration": [0.0, "mg dm-3"],
+                        "sulfateConcentration": [334, "mg dm-3"]
+                    }
+                },
+                { 
+                    "type": "AutomaticHarvest", 
+                    "latest-date": "0001-10-03",
+                    "min-%-asw": 0,
+                    "max-%-asw": 150,
+                    "max-3d-precip-sum": 999,
+                    "max-curr-day-precip": 999,
+                    "harvest-time": "maturity"
+                }
+            ]
+        }
+    ],
+
+    "CropParameters": ["include-from-file", "general/crop.json"]
+}
