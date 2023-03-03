@@ -41,13 +41,9 @@ def run_consumer(server = {"server": None, "port": None}):
 
     socket.connect("tcp://" + config["server"] + ":" + config["port"])
 
-    #socket.RCVTIMEO = 1000
+    socket.RCVTIMEO = 60000 # stop consumer after 1 minutes
     leave = False
     
-    #envs = set()
-    #for i in range(1, 1944):
-    #    envs.add(i)
-
     def process_message(msg):
 
         if not hasattr(process_message, "received_env_count"):
@@ -69,17 +65,14 @@ def run_consumer(server = {"server": None, "port": None}):
                     writer = csv.writer(_, delimiter=",")
                     writer.writerow(["id", "sowing_doy", "kg N", "mm irrigation", "year", "sowing date", "harvest date", "yield", "AbBiom"])    
 
-            #with open("out/out-" + str(i) + ".csv", 'wb') as _:
             with open(config["path_to_out_file"], "a", newline="") as _:
                 writer = csv.writer(_, delimiter=",")
 
                 cid = msg["customId"]
-                #envs.remove(cid["env-id"])
 
                 for data_ in msg.get("data", []):
                     results = data_.get("results", [])
 
-                    #print("len(results)=", len(results))
                     for r in results:
                         if len(r) == 0:
                             continue
@@ -91,7 +84,6 @@ def run_consumer(server = {"server": None, "port": None}):
                         row.append(r["AbBiom"])
                         writer.writerow(row)
 
-        #print(envs)
         return leave
 
     while not leave:
@@ -100,7 +92,8 @@ def run_consumer(server = {"server": None, "port": None}):
             leave = process_message(msg)
         except:
             print(sys.exc_info())
-            continue
+            leave = True
+            #continue
 
     print("exiting run_consumer")
 
