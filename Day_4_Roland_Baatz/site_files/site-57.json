@@ -1,0 +1,86 @@
+{
+    "SoilTemperatureParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-temperature.json"
+    ], 
+    "SoilOrganicParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-organic.json"
+    ], 
+    "EnvironmentParameters": {
+        "LeachingDepth": 2.0, 
+        "AtmosphericCO2": 395, 
+        "=": [
+            "include-from-file", 
+            "monica-parameters/general/environment.json"
+        ], 
+        "WindSpeedHeight": 2.5
+    }, 
+    "SoilMoistureParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-moisture.json"
+    ], 
+    "SiteParameters": {
+        "Latitude": 47.884722, 
+        "Slope": 0.01, 
+        "SoilProfileParameters": [
+            {
+                "Sand": 0.21, 
+                "FieldCapacity": 0.237, 
+                "SoilMoisturePercentFC": 0, 
+                "Clay": 0.165, 
+                "PermanentWiltingPoint": 0.093, 
+                "pH": 6.0, 
+                "SoilBulkDensity": 1357.0, 
+                "Sceleton": 0.0, 
+                "SoilOrganicMatter": 0.025, 
+                "Thickness": [
+                    30.0, 
+                    "cm"
+                ]
+            }, 
+            {
+                "Sand": 0.2285, 
+                "FieldCapacity": 0.196, 
+                "SoilMoisturePercentFC": 45.41, 
+                "Clay": 0.165, 
+                "PermanentWiltingPoint": 0.089, 
+                "pH": 6.0, 
+                "SoilBulkDensity": 1583.0000000000002, 
+                "Sceleton": 0.0, 
+                "SoilOrganicMatter": 0.006500000000000001, 
+                "Thickness": [
+                    20.0, 
+                    "cm"
+                ]
+            }, 
+            {
+                "Sand": 0.2285, 
+                "FieldCapacity": 0.196, 
+                "SoilMoisturePercentFC": 45.41, 
+                "Clay": 0.165, 
+                "PermanentWiltingPoint": 0.089, 
+                "pH": 6.0, 
+                "SoilBulkDensity": 1583.0, 
+                "Sceleton": 0.0, 
+                "SoilOrganicMatter": 0.006500000000000001, 
+                "Thickness": [
+                    100.0, 
+                    "cm"
+                ]
+            }
+        ], 
+        "NDeposition": [
+            30, 
+            "kg N ha-1 y-1"
+        ], 
+        "HeightNN": [
+            93.0, 
+            "m"
+        ]
+    }, 
+    "SoilTransportParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-transport.json"
+    ]
+}

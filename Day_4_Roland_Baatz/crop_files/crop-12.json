@@ -1,0 +1,99 @@
+{
+    "crops": {
+        "WW": {
+            "is-winter-crop": true, 
+            "residueParams": [
+                "include-from-file", 
+                "monica-parameters/crop-residues/wheat.json"
+            ], 
+            "cropParams": {
+                "cultivar": [
+                    "include-from-file", 
+                    "monica-parameters/projects/agmip-calibration/winter-wheat-bermude.json"
+                ], 
+                "species": [
+                    "include-from-file", 
+                    "monica-parameters/projects/agmip-calibration/wheat.json"
+                ]
+            }
+        }
+    }, 
+    "cropRotation": [
+        {
+            "worksteps": [
+                {
+                    "date": "2009-10-08", 
+                    "type": "Sowing", 
+                    "crop": [
+                        "ref", 
+                        "crops", 
+                        "WW"
+                    ]
+                }, 
+                {
+                    "date": "2010-02-15", 
+                    "amount": [
+                        36.0, 
+                        "kg N"
+                    ], 
+                    "partition": [
+                        "include-from-file", 
+                        "monica-parameters/mineral-fertilisers/AN.json"
+                    ], 
+                    "type": "MineralFertilization"
+                }, 
+                {
+                    "date": "2010-03-18", 
+                    "amount": [
+                        62.0, 
+                        "kg N"
+                    ], 
+                    "partition": [
+                        "include-from-file", 
+                        "monica-parameters/mineral-fertilisers/AN.json"
+                    ], 
+                    "type": "MineralFertilization"
+                }, 
+                {
+                    "date": "2010-04-05", 
+                    "amount": [
+                        62.0, 
+                        "kg N"
+                    ], 
+                    "partition": [
+                        "include-from-file", 
+                        "monica-parameters/mineral-fertilisers/AN.json"
+                    ], 
+                    "type": "MineralFertilization"
+                }, 
+                {
+                    "date": "2010-04-29", 
+                    "amount": [
+                        33.5, 
+                        "kg N"
+                    ], 
+                    "partition": [
+                        "include-from-file", 
+                        "monica-parameters/mineral-fertilisers/AN.json"
+                    ], 
+                    "type": "MineralFertilization"
+                }, 
+                {
+                    "max-3d-precip-sum": 5, 
+                    "harvest-time": "maturity", 
+                    "max-curr-day-precip": 1, 
+                    "min-%-asw": 0, 
+                    "max-%-asw": 100, 
+                    "latest-date": "0001-09-01", 
+                    "type": "AutomaticHarvest"
+                }
+            ]
+        }
+    ], 
+    "CropParameters": {
+        "=": [
+            "include-from-file", 
+            "monica-parameters/general/crop.json"
+        ]
+    }
+}

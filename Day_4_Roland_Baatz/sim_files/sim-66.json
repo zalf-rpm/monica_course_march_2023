@@ -1,0 +1,55 @@
+{
+    "UseAutomaticIrrigation": false, 
+    "climate.csv": "", 
+    "end-date": "2014-12-31", 
+    "site.json": "site-66.json", 
+    "start-date": "2013-08-01", 
+    "climate.csv-options": {
+        "header-to-acd-names": {
+            "et0": "et0"
+        }, 
+        "csv-separator": ",", 
+        "end-date": "2014-12-31", 
+        "no-of-climate-file-header-lines": 1, 
+        "start-date": "2013-08-01"
+    }, 
+    "EmergenceMoistureControlOn": false, 
+    "debug?": false, 
+    "crop.json": "crop-66.json", 
+    "WaterDeficitResponseOn": true, 
+    "EmergenceFloodingControlOn": false, 
+    "use-leap-years": true, 
+    "LayerThickness": [
+        0.1, 
+        "m"
+    ], 
+    "UseNMinMineralFertilisingMethod": false, 
+    "output": {
+        "csv-options": {
+            "include-header-row": true, 
+            "include-units-row": true, 
+            "csv-separator": ","
+        }, 
+        "events": [
+            {	
+				"from": "Sowing", 
+				"to": "Harvest",
+				"while": ["TempSum", ">", "TSUM_30"]
+			}, [
+				["DOY", "FIRST"]	
+			],
+
+            {	
+				"from": "Sowing", 
+				"to": "Harvest",
+				"while": ["TempSum", ">", "TSUM_55"]
+			}, [
+				["DOY", "FIRST"]	
+			]
+        ]
+    }, 
+    "NitrogenResponseOn": true, 
+    "include-file-base-path": "${MONICA_PARAMETERS}/../", 
+    "NumberOfLayers": 20, 
+    "UseSecondaryYields": true
+}

@@ -1,0 +1,71 @@
+{
+    "SoilTemperatureParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-temperature.json"
+    ], 
+    "SoilOrganicParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-organic.json"
+    ], 
+    "EnvironmentParameters": {
+        "LeachingDepth": 2.0, 
+        "AtmosphericCO2": 395, 
+        "=": [
+            "include-from-file", 
+            "monica-parameters/general/environment.json"
+        ], 
+        "WindSpeedHeight": 2.5
+    }, 
+    "SoilMoistureParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-moisture.json"
+    ], 
+    "SiteParameters": {
+        "Latitude": 48.325278000000004, 
+        "Slope": 0.01, 
+        "SoilProfileParameters": [
+            {
+                "Sand": 0.08, 
+                "FieldCapacity": 0.258, 
+                "SoilMoisturePercentFC": 0, 
+                "Clay": 0.309, 
+                "PermanentWiltingPoint": 0.146, 
+                "pH": 8.3, 
+                "SoilBulkDensity": 1333.0000000000002, 
+                "Sceleton": 0.04, 
+                "SoilOrganicMatter": 0.03, 
+                "Thickness": [
+                    30.0, 
+                    "cm"
+                ]
+            }, 
+            {
+                "Sand": 0.081, 
+                "FieldCapacity": 0.236, 
+                "SoilMoisturePercentFC": 66.1, 
+                "Clay": 0.36, 
+                "PermanentWiltingPoint": 0.156, 
+                "pH": 8.6, 
+                "SoilBulkDensity": 1569.0, 
+                "Sceleton": 0.0, 
+                "SoilOrganicMatter": 0.009000000000000001, 
+                "Thickness": [
+                    40.0, 
+                    "cm"
+                ]
+            }
+        ], 
+        "NDeposition": [
+            30, 
+            "kg N ha-1 y-1"
+        ], 
+        "HeightNN": [
+            109.0, 
+            "m"
+        ]
+    }, 
+    "SoilTransportParameters": [
+        "include-from-file", 
+        "monica-parameters/general/soil-transport.json"
+    ]
+}

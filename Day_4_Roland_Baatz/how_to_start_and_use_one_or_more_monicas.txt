@@ -1,0 +1,21 @@
+# using just a single monica server
+monica-zmq-server -bi -i tcp://*:6677 -bo -o tcp://*:7788
+
+#----------------------------------------------
+# use many monicas 
+#----------------------------------------------
+
+# start two proxies via
+> monica-zmq-proxy -pps -f 6666 -b 6677
+> monica-zmq-proxy -pps -f 7788 -b 7777
+
+# start one or more monicas via
+monica-zmq-server -ci -i tcp://localhost:6677 -co -o tcp://localhost:7788
+
+# or start many monicas with a single line in the background
+
+# Linux: start many monicas at an Bash shell via
+for i in {1..20}; do (monica-zmq-server -ci -i tcp://localhost:6677 -co -o tcp://localhost:7788 &) ; done
+
+# Windows: start many at monicas at cmd via (use %%i instead of %i if in a .bat script)
+for /l %i in (1, 1, 20) do start "Monica %i" /min monica-zmq-server -ci -i tcp://localhost:6677 -co -o tcp://localhost:7788
