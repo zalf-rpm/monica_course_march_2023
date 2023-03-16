@@ -26,13 +26,13 @@ cultivar = "bermude"#"apache" #"bermude"
 crop_sim_site_MAP = "crop_sim_site_MAP_bermude.csv"
 observations = "observations_bermude.csv"
 
-cur_dir = os.getcwd() 
+#cur_dir = os.getcwd() 
+os.chdir(os.getcwd())
 #read general settings
 exp_maps = []
 basepath = os.path.dirname(os.path.abspath(__file__))
 #cur_dir = os.getcwd() 
-sourcefilename=basepath+"/"+crop_sim_site_MAP
-with open(crop_sim_site_MAP) as exp_mapfile:
+with open(os.path.join(basepath, crop_sim_site_MAP)) as exp_mapfile:
     dialect = csv.Sniffer().sniff(exp_mapfile.read(), delimiters=';,\t')
     exp_mapfile.seek(0)
     reader = csv.reader(exp_mapfile, dialect)
@@ -52,7 +52,7 @@ with open(crop_sim_site_MAP) as exp_mapfile:
 
 #read observations for which the likelihood of parameter space is calculated
 obslist = [] #for envs (outputs)
-with open(observations) as obsfile:
+with open(os.path.join(basepath, observations)) as obsfile:
     dialect = csv.Sniffer().sniff(obsfile.read(), delimiters=';,\t')
     obsfile.seek(0)
     reader = csv.reader(obsfile, dialect)
@@ -71,7 +71,7 @@ obslist = sorted(obslist, key=getKey)
 
 #read parameters which are to be calibrated
 params = []
-with open('calibratethese.csv') as paramscsv:
+with open(os.path.join(basepath, "calibratethese.csv")) as paramscsv:
     dialect = csv.Sniffer().sniff(paramscsv.read(), delimiters=';,\t')
     paramscsv.seek(0)
     reader = csv.reader(paramscsv, dialect)
